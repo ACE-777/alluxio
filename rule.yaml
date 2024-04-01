@@ -1,0 +1,10 @@
+rules:
+  - id: find-execCommand-with-getGroupsForUserCommand-argument
+    patterns:
+      - pattern-inside: |
+          $X.execCommand($Y.$METHOD(... ,$Z, ...))
+      - focus-metavariable: $Z
+    message: "Found call to execCommand with getGroupsForUserCommand as argument"
+    severity: WARNING
+    languages:
+      - java
